@@ -1,0 +1,106 @@
+.card-body h1 {
+    font-size: 10vh;
+}
+
+.home_link {
+    text-decoration: none !important;
+    color: white;
+}
+
+.home_link:visited {
+    text-decoration: none !important; 
+    color: white;
+}
+
+.box_compte {
+    position: relative;
+    width: 80rem;
+    align-items: center;
+    transform: translate( -50%, 0);
+    transform-origin: center;
+    left: 45%;
+    top: 5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border: solid rgb(231, 231, 231);
+    border-radius: 2rem;
+    margin: 5rem;
+}
+
+.wrapper {
+    z-index: -500;
+    position: absolute;
+    background-color: aqua;
+}
+
+.box_test {
+    position: absolute;
+    top: 10rem;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    transform: translate( -50%, 0);
+    transform-origin: center;
+    left: 45%;
+}
+
+#inputEmail {
+    position: relative;
+    background-color: rgb(200, 200, 200);
+    align-content: center;
+    width: 20rem;
+    transform: translate( -50%, 0);
+    left: 50%;
+}
+
+#inputPassword {
+    position: relative;
+    background-color: rgb(200, 200, 200);
+    align-content: center;
+    width: 20rem;
+    transform: translate( -50%, 0);
+    left: 50%;
+}
+
+
+.box_compte_nom {
+    position: relative;
+    width: 80rem;
+    align-items: center;
+    text-align: center;
+    transform: translate( -50%, 0);
+    left: 50%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.box_compte_login {
+    position: relative;
+    width: 80rem;
+    align-items: center;
+    text-align: center;
+    transform: translate( -50%, 0);
+    left: 50%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+#operation {
+    position: relative;;
+    width: fit-content;
+    transform: translate( -50%, 0);
+    left: 50%;
+}
+
+.box1 h1 {
+    color: aqua;
+    background-color: aqua;
+    size: 5rem;
+}
+
+.dashboard {
+    background-color: aqua;
+    margin: 40px;
+    align-items: center;
+    text-align: center;
+}

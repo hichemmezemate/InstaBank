@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InstaBank{% endblock %}
+
+{% block body %}
+
+{% if app.user %}
+    <div class="box_compte_nom">
+        <h1 class="text-center">Mes comptes</h1>
+    </div>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    
+    <div class="box_compte_nom">
+        <h4>Bonjour {{ app.user.prenom }}</h4>
+    </div>
+
+    <div class="box_compte justify-content-center col-1">
+        {% if nbComptes == 0 %}
+            <h1>Vous n'avez pas encore de compte</h1>
+        {% endif %}
+
+        {% for compte in mescomptes %}
+            <div class="col m-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ compte.type.libelle }}</h5>
+                        <p class="card-text">{{ compte.solde }} €</p>
+                        <a href="{{ path('app_operation_index', {id: compte.id}) }}" class="card-link">
+                            <button type="button" class="btn btn-secondary">Historique</button>
+                        </a>
+                        <a href="{{ path('app_mouvement', {id: compte.id}) }}" class="card-link">
+                            <button type="button" class="btn btn-success">Ajouter une operation</button>
+                        </a>
+                        <a href="{{ path('app_compte_delete', {id: compte.id}) }}" class="card-link">
+                            <button type="button" class="btn btn-danger">Supprimer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% else %}
+    <div class="card m-5" style="max-width: 95%; top: 3rem;">
+        <div class="row g-2">
+            <div class="col-md-4">
+                <img src={{ asset('images/bank.svg') }} class="card-img-top" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body m-3">
+                    <h1>InstaBank</h1>
+                    <h2 class="card-text ms-3 text-secondary fs-1 mt-5">InstaBank est une application qui vous <br> permet
+                        de bien gérer votre compte bancaire, <br> vos operations et vos budgets</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}

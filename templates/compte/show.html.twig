@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compte{% endblock %}
+
+{% block body %}
+    <div class="box_compte">
+        <div class="box_compte_nom">
+            <h1>Compte</h1>
+        </div>
+    
+        <div class="box_compte_nom">
+            <table class="table table-secondary px-3">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ compte.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Solde</th>
+                        <td>{{ compte.solde }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="box_compte_nom">
+            <a href="{{ path('app_home') }}">
+                <button class="btn btn-success m-3">
+                    Retour
+                </button>
+            </a>
+        
+            {{ include('compte/_delete_form.html.twig') }}
+        </div>
+
+
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Historique d'Operations{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="box_compte_nom">
+            <h1>Historique des operations</h1>
+        </div>
+
+        {% if form %}
+            <div class="box_compte">
+                <div class="box_compte_login">
+                    {{ form_start(form, {attr: {class: 'filter js-filter-form'}}) }}
+                        <h4>Budgets</h4>
+                        <div class="table">
+                            {{ form_row(form.budgets) }}
+                        </div>
+                        <button class="btn btn-success btn-m my-3">Rechercher</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        {% endif %}
+
+        <table class="box_compte table table-secondary p-3">
+            <thead class="table-success">
+                <tr>
+                    <th>Operation n°</th>
+                    <th>Date</th>
+                    <th>Budget</th>
+                    <th>Type</th>
+                    <th>Montant</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for operation in operations %}
+                    <tr class="table-light">
+                        <td>{{ operation.id }}</td>
+                        <td>{{ operation.date ? operation.date|date('d-m-Y') : '' }}</td>
+                        {% if operation.budget is not null %}
+                            <td>{{ operation.budget.nom }}</td>
+                        {% else %}
+                            <td>{{ operation.budget.nom|default('ND') }}</td>
+                        {% endif %}
+                        <td>{{ operation.type }}</td>
+                        <td>{{ operation.montant }} €</td>
+                        <td>
+                            <a href="{{ path('app_operation_edit', {id : operation.id}) }}">
+                                <button class="btn btn-light">Modifier</button>
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">Pas d'operation disponible</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
